@@ -32,7 +32,7 @@ public:
       acceptor_.open(endpoint.protocol());
       acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
       acceptor_.bind(endpoint);
-      acceptor_.listen();
+      acceptor_.listen(65535);
 
       // get our first conn ready
       handler_ = handler::ptr_type(new handler(ios_, parser_, queues_, stats_));
